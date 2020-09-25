@@ -37,7 +37,6 @@ app update.
     'GoogleUtilities/NSData+zlib/Private/*.h',
   ]
   s.public_header_files = base_dir + 'Public/FirebaseRemoteConfig/*.h'
-  s.private_header_files = base_dir + 'Private/*.h'
   s.pod_target_xcconfig = {
     'GCC_C_LANGUAGE_STANDARD' => 'c99',
     'GCC_PREPROCESSOR_DEFINITIONS' =>
