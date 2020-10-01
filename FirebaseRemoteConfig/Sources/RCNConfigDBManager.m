@@ -46,11 +46,17 @@ static NSString *RemoteConfigPathForOldDatabaseV0() {
 
 /// Remote Config database path for current database.
 static NSString *RemoteConfigPathForDatabase(void) {
-  NSArray *dirPaths =
-      NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-  NSString *appSupportPath = dirPaths.firstObject;
+#if os(tvOS)
+    NSArray *dirPaths =
+        NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+#else
+    NSArray *dirPaths =
+        NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+#endif
+  
+  NSString *path = dirPaths.firstObject;
   NSArray *components =
-      @[ appSupportPath, RCNRemoteConfigApplicationSupportSubDirectory, RCNDatabaseName ];
+      @[ path, RCNRemoteConfigApplicationSupportSubDirectory, RCNDatabaseName ];
   return [NSString pathWithComponents:components];
 }
 
