@@ -1,3 +1,6 @@
+# v7.0.0
+- [fixed] Updated `numberValue` to be nonnull to align with current behavior. (#6623)
+
 # v4.9.1
 - [fixed] Fix an `attempt to insert nil object` crash in `fetchWithExpirationDuration:`. (#6522)
 
